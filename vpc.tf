@@ -122,28 +122,28 @@ resource "aws_route_table_association" "private_asso" {
 #}
 
 
-resource "aws_instance" "amit_web" {
-  ami           = "ami-0d382e80be7ffdae5"
-  instance_type = "t3.micro"
-  subnet_id     = aws_subnet.public_subnet.id
-  vpc_security_group_ids  = [aws_security_group.amitsg.id]
-  key_name      = "amitkey"
-  tags = {
-    Name = "amit_web"
-  }
-}
+#resource "aws_instance" "amit_web" {
+# ami           = "ami-0d382e80be7ffdae5"
+ # instance_type = "t3.micro"
+ # subnet_id     = aws_subnet.public_subnet.id
+ # vpc_security_group_ids  = [aws_security_group.amitsg.id]
+ # key_name      = "amitkey"
+ # tags = {
+ #   Name = "amit_web"
+ # }
+#}
 
 
-resource "aws_instance" "amit_db" {
-  ami           = "ami-0d382e80be7ffdae5"
-  instance_type = "t3.micro"
-  subnet_id     = aws_subnet.private_subnet.id
-  vpc_security_group_ids  = [aws_security_group.amitsg.id]
+#resource "aws_instance" "amit_db" {
+ # ami           = "ami-0d382e80be7ffdae5"
+ # instance_type = "t3.micro"
+ # subnet_id     = aws_subnet.private_subnet.id
+ # vpc_security_group_ids  = [aws_security_group.amitsg.id]
 
-    tags = {
-    Name = "amit_db"
-  }
-}
+  #  tags = {
+   # Name = "amit_db"
+#  }
+#}
 
 resource "aws_eip" "amit_eip" {
   instance = aws_instance.amit_web.id
